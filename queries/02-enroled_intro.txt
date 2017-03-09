@@ -1,0 +1,108 @@
+
+------------------------------------------------------------------
+------------------------------------------------------------------
+
+Query para obtener todos los alumnos enrolados en cursos introductorios solamente
+resultado al 2017-FEB-01: 1030 registros
+
+(query modificado de /media/clm/TOSH08/UTEL/info/queries.txt - Query para obtener todos los alumnos enrolados en cursos curriculares e introductorios)
+
+SELECT 
+mdl_groups_members.userid as usrid,
+from_unixtime(min(mdl_user_enrolments.timecreated)) as date
+-- mdl_course.fullname,
+-- mdl_course.id,
+-- mdl_groups.name
+
+FROM
+mdl_groups_members
+INNER JOIN mdl_user ON mdl_user.id = mdl_groups_members.userid AND mdl_user.username not like '%demo%'
+INNER JOIN mdl_groups ON mdl_groups.id = mdl_groups_members.groupid
+INNER JOIN mdl_course ON mdl_course.id = mdl_groups.courseid
+INNER JOIN mdl_enrol ON mdl_enrol.courseid = mdl_groups.courseid
+INNER JOIN mdl_user_enrolments ON mdl_user_enrolments.enrolid = mdl_enrol.id AND mdl_user_enrolments.userid = mdl_groups_members.userid AND mdl_user.id = mdl_user_enrolments.userid
+INNER JOIN mdl_context ON mdl_context.instanceid = mdl_groups.courseid
+INNER JOIN mdl_role_assignments ON mdl_role_assignments.contextid = mdl_context.id AND mdl_role_assignments.userid = mdl_groups_members.userid
+INNER JOIN mdl_role ON mdl_role.id = mdl_role_assignments.roleid 
+WHERE
+/*mdl_course.category = 224 and*/
+mdl_user_enrolments.`status` = 0
+and mdl_enrol.courseid in (8911, 8915, 8919, 8923)
+and mdl_user.id >= 16687
+and mdl_course.visible = 1
+AND mdl_role.id in(5,16)
+AND mdl_context.contextlevel = 50
+
+group by 
+mdl_groups_members.userid
+
+---
+comentarios
+mdl_role.id in(5 = estud, 
+16 = estud, 
+20 = profesores)
+
+------------------------------------------------------------------
+------------------------------------------------------------------
+
+
+pruebas sobre el query anterior:----- ESTE QUERY ES IGUAL AL ANTERIOR
+FUNCIONA OK, solo cambiamos de lugar las condiciones del WHERE
+
+
+resultado al 2017-FEB-02: 1025 registros
+
+
+SELECT 
+mdl_groups_members.userid as usrid,
+from_unixtime(min(mdl_user_enrolments.timecreated)) as date
+-- mdl_course.fullname,
+-- mdl_course.id,
+-- mdl_groups.name
+FROM mdl_groups_members
+INNER JOIN mdl_user ON mdl_user.id = mdl_groups_members.userid
+INNER JOIN mdl_groups ON mdl_groups_members.groupid  = mdl_groups.id
+INNER JOIN mdl_course ON mdl_course.id = mdl_groups.courseid
+INNER JOIN mdl_enrol ON mdl_enrol.courseid = mdl_groups.courseid
+INNER JOIN mdl_user_enrolments ON mdl_user_enrolments.enrolid = mdl_enrol.id 
+AND mdl_user_enrolments.userid = mdl_groups_members.userid 
+AND mdl_user.id = mdl_user_enrolments.userid
+INNER JOIN mdl_context ON mdl_context.instanceid = mdl_groups.courseid
+INNER JOIN mdl_role_assignments ON mdl_role_assignments.contextid = mdl_context.id 
+AND mdl_role_assignments.userid = mdl_groups_members.userid
+INNER JOIN mdl_role ON mdl_role.id = mdl_role_assignments.roleid 
+WHERE
+mdl_user.username not like '%demo%'
+AND mdl_user.id >= 16687
+/* AND mdl_course.category = 224 */
+AND mdl_user_enrolments.`status` = 0
+AND mdl_enrol.courseid in (8911, 8915, 8919, 8923)
+AND mdl_course.visible = 1
+AND mdl_context.contextlevel = 50
+AND mdl_role.id in (5, 16)
+group by 
+mdl_groups_members.userid
+
+------------------------------------------------------------------
+------------------------------------------------------------------
+(ya me dijo charlie que están fechas mal en BD, hay que tomar el archivo que el me dio para tomar en cuenta las fechas)
+
+Materias introductorias:
+Introducción al estudio de las ingenierías en línea_A	3783	AB016_1_1101_L1HB402	11-Jan-16	57
+
+Introducción al estudio de las ciencias sociales y humanidades en línea_A	3786	AB016_1_1101_L1HB404	11-Jan-16	57
+
+Introducción al estudio de las ciencias económico-administrativas en línea_A	3789	AB016_1_1101_L1HB403	11-Jan-16	57
+
+Habilidades para el aprendizaje virtual_A	3792	AB016_1_1101_L1HB405	11-Jan-16	57
+
+3783
+3786
+3789
+3792
+
+
+
+
+
+

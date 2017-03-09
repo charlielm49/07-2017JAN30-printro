@@ -1,0 +1,60 @@
+
+________________________________________________________________________________________
+______________________________________________________________________________________
+Query para foros para churn introductorios - 2017-JAN-31
+
+-- Obtenemos todas las actividades de todos los tiempos al 31 enero 2017
+
+-- foros 
+
+SELECT
+"foro" AS tipo,
+FROM_UNIXTIME(mdl_forum_posts.created) AS fecha,
+mdl_forum_posts.userid,
+mdl_forum_discussions.course,
+-- mdl_course.fullname,
+mdl_course_categories.id as category
+-- mdl_course_categories.`name`
+
+FROM
+mdl_forum_posts
+left JOIN mdl_forum_discussions ON mdl_forum_discussions.id = mdl_forum_posts.discussion
+left JOIN mdl_course ON mdl_course.id = mdl_forum_discussions.course
+left JOIN mdl_course_categories ON mdl_course_categories.id = mdl_course.category
+
+---
+
+SELECT
+"quiz" AS tipo,
+FROM_UNIXTIME(mdl_quiz_attempts.timemodified) AS date,
+mdl_quiz_attempts.userid,
+mdl_course.id as course,
+-- mdl_course.fullname,
+mdl_course_categories.id as category,
+-- mdl_course_categories.`name`
+
+FROM
+mdl_quiz_attempts
+left JOIN mdl_quiz ON mdl_quiz.id = mdl_quiz_attempts.quiz
+left JOIN mdl_course ON mdl_course.id = mdl_quiz.course
+left JOIN mdl_course_categories ON mdl_course_categories.id = mdl_course.category
+
+---
+
+SELECT
+"ass" AS tipo,
+FROM_UNIXTIME(mdl_assign_submission.timecreated) AS actdate,
+mdl_assign_submission.userid as usrid,
+mdl_course.id as crsid,
+-- mdl_course.fullname,
+mdl_course.category as catid
+-- mdl_course_categories.`name`
+
+
+FROM
+mdl_assign_submission
+left JOIN mdl_assign ON mdl_assign.id = mdl_assign_submission.assignment
+left JOIN mdl_course ON mdl_course.id = mdl_assign.course
+left JOIN mdl_course_categories ON mdl_course_categories.id = mdl_course.category
+
+

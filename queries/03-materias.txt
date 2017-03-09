@@ -1,0 +1,21 @@
+Query para sacar la info de materias introductorias
+
+SELECT
+mdl_course.fullname,
+mdl_course.id,
+mdl_course.shortname,
+FROM_UNIXTIME(mdl_course.startdate) as fecha
+FROM
+mdl_course
+WHERE
+-- fullname like "Intro%"
+-- fullname like "Habilidades para%"
+-- AND
+shortname not like '%demo%'
+and shortname not like '%borrar%'
+-- and shortname like "%L1HB%"
+and fullname not like ("%copia%")
+and FROM_UNIXTIME(mdl_course.startdate) like "2016-01%"
+-- AND mdl_course.visible = 1
+
+order by fullname, fecha

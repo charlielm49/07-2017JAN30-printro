@@ -1,0 +1,7 @@
+
+git clone https://github.com/diego1q2w/aws-ml.git
+
+docker-compose up
+
+
+r.db('aws').table('process').insert({'finished': false})

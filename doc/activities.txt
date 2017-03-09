@@ -1,0 +1,11 @@
+
+1) Extraction of information from MySQL database 
+2) Transformation of extracted data from database (python scripts - this will be done by requester - carlos)
+3) Creation of flat table with transformed data (carlos)
+4) Load of transformed information to BigML storage (csv format) (carlos)
+5) Automated analysis of loaded information for prediction (batch prediction) - this will be done  automatically with BigML Machine learning  service
+6) Results put in BigML storage (csv format - prediction list) (carlos)
+
+All these steps must be automated to run periodically (for example, weekly)
+
+________________________________________________________________________________

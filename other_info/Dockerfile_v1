@@ -1,0 +1,58 @@
+
+
+FROM debian:jessie
+RUN apt-get -y update
+RUN apt-get install -y python3
+#[Need to get 6586 kB of archives
+#After this operation, 26.7 MB of additional disk space will be used]
+RUN apt-get install -y python3-pip
+#[Need to get 100 MB of archives.
+#After this operation, 248 MB of additional disk space will be used]
+RUN apt-get install -y gcc [already installed]
+RUN root@e059b69dc694:/# pip3 install pandas
+[Successfully installed pandas python-dateutil pytz numpy]
+RUN cd /ul/exer/bigml/python [local (host) machine]
+python setup.py install --user
+[Adding bigml 4.8.2 to easy-install.pth file
+Adding PyStemmer 1.3.0 to easy-install.pth file
+Adding Unidecode 0.04.20 to easy-install.pth file
+Adding requests 2.4.3 to easy-install.pth file]
+
+
+
+RUN pip3 install numpy 
+[compiló todo: OK, pero opcional BLAS, lapack]
+RUN apt-get install -y git
+[Need to get 12.5 MB of archives.
+After this operation, 42.6 MB of additional disk space will be used]
+
+
+
+
+CMD /usr/games/fortune -a | cowsay
+
+
+
+
+cd /ul/exer/bigml/python
+root@bb00b51be486:/ul/exer/bigml/python# python setup.py install --user
+
+pip install pandas
+Successfully installed numpy-1.12.0 pandas-0.19.2 python-dateutil-2.6.0 pytz-2016.10 six-1.10.0
+
+________________________________________________________________________
+
+FROM python:3.4
+
+git clone https://github.com/bigmlcom/python.git [BigML Python Bindings downloaded to host computer - NOT DOCKER]
+root@b2c1b3d83c9e:/ul/exer/bigml/python# python setup.py install --user
+
+
+root@b2c1b3d83c9e:/ul/exer/bigml/python# pip install pandas
+...
+Installing collected packages: six, python-dateutil, numpy, pytz, pandas
+Successfully installed numpy-1.12.0 pandas-0.19.2 python-dateutil-2.6.0 pytz-2016.10 six-1.10.0
+
+
+________________________________________________________________________
+

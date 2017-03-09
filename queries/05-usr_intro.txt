@@ -1,0 +1,13 @@
+
+SELECT 
+mdl_user.userid as usrid, 
+from_unixtime(mdl_user.timecreated) as dat_matricula, 
+from_unixtime(mdl_user.firstaccess) as dat_firstac, 
+from_unixtime(mdl_user.lastlogin) as dat_lastlog, 
+from_unixtime(mdl_user.lastaccess) as dat_lastac
+FROM 
+mdl_user
+WHERE
+mdl_user.username not like '%demo%'
+AND mdl_user.id >= 16687
+

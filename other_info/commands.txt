@@ -1,0 +1,61 @@
+docker run -i -t -v /ul:/ul debian:stretch /bin/bash
+docker run -i -t -v /ul:/ul python:3.4 /bin/bash
+docker run -i -t -v /ul:/ul python:3.6 /bin/bash
+docker run -i -t -v /ul:/ul debian:latest /bin/bash
+docker run -i -t -v /ul:/ul debian:jessie /bin/bash
+docker run -i -t -v /ul:/ul charlielm1015/debjess_pnd /bin/bash
+
+docker run -i -t -v /media:/media charlielm1015/debjess_pnd2 /bin/bash
+
+docker build -t charlielm1015/debjess_pnd2 .
+(uses local Dockerfile instructions)
+
+# Comando para construir contenedor de bigml a partir de debian:jessie
+docker build -t charlielm1015/bigml .
+
+
+#EXAMPLE Dockerfile:
+RUN cd / && \
+    git clone https://github.com/ && \
+    cd /fileadmin/ && \
+    bundle install && \
+    rake db:migrate && \
+    bundle exec rails runner "eval(File.read 'createTestUser.rb')" && \
+    mkdir /pending && \
+    mkdir /live && \
+    chmod 777 /pending && \
+    chmod 777 /live
+
+# Comando para commit a la maquina virtual construida y que esta sea permanente
+docker commit 46295e75f872 charlielm1015/destretch:scala
+
+
+
+-------------------
+
+
+Comandos para docker compose
+
+
+git pull origin charlie
+git checkout charlie
+
+			
+docker-compose up -d 				# correrlo comko demonio
+
+docker-compose run master bash 		# entro al contenedor
+ADENTRO del contenedor python: 
+$python start.py
+
+docker-compose scale worker=1 		# definir num workers
+
+clm@deb09:/ul/UTEL/aws-ml$ docker-compose kill	# matar los workers
+Killing awsml_worker_1 ... done
+Killing awsml_rabbitmq_1 ... done
+Killing awsml_rethinkdb_1 ... done
+clm@deb09:/ul/UTEL/aws-ml$ 
+
+docker-compose logs -f worker
+
+
+
