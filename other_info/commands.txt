@@ -35,19 +35,16 @@ docker commit 46295e75f872 charlielm1015/destretch:scala
 
 
 Comandos para docker compose
-
-
-git pull origin charlie
-git checkout charlie
-
-			
+----------------------------
+		
 docker-compose up -d 				# correrlo comko demonio
+docker-compose scale worker=1 		# definir num workers
+
+docker-compose logs -f worker
 
 docker-compose run master bash 		# entro al contenedor
 ADENTRO del contenedor python: 
 $python start.py
-
-docker-compose scale worker=1 		# definir num workers
 
 clm@deb09:/ul/UTEL/aws-ml$ docker-compose kill	# matar los workers
 Killing awsml_worker_1 ... done
@@ -55,7 +52,22 @@ Killing awsml_rabbitmq_1 ... done
 Killing awsml_rethinkdb_1 ... done
 clm@deb09:/ul/UTEL/aws-ml$ 
 
-docker-compose logs -f worker
+docker-compose logs master
+
+# para insertar:
+r.db('aws').table('process').insert({'finished': true})
+
+2017-MAR-10
+# Para que corran los procesos
+r.db('aws').table('process').insert({'finished': false})
+# borra el insert , ese seria para ver todos los registros, ese es como un select all:
+r.db('aws').table('process')
+
+# matamos los workers
+clm@deb09:.../KING08-NTFS/aws-ml$ docker-compose kill
 
 
+r.db('aws').table('process').update({'finished': true})
 
+# dar por terminado los jobs
+r.db('aws').table('job').update({'finished': true})

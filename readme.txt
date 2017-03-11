@@ -101,8 +101,13 @@ eventos
 
 ---
 
-pend: sacar mas variables de la tabla de usuarios: como hacerle? hacer otro query a la misma tabla? o modificar el query actual?
+OKpend: sacar mas variables de la tabla de usuarios: como hacerle? hacer otro query a la misma tabla? o modificar el query actual?
+R: se hace otro query
 
- 
+pend: re-read dates to ensure they are really dates
+
+pend: eliminate recursadores
+
+
 
 ______________________________________________
