@@ -71,3 +71,7 @@ r.db('aws').table('process').update({'finished': true})
 
 # dar por terminado los jobs
 r.db('aws').table('job').update({'finished': true})
+
+http://ec2-54-213-125-244.us-west-2.compute.amazonaws.com:8080/
+
+
