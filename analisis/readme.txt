@@ -45,6 +45,10 @@ __________________________________________________________________________
 
 04_pegado.py - pegado de archivos chiquitos *.csv
 
+__________________________________________________________________________
+
+
+NOTAS: la fecha de inicio de cursos esta hardcodeada: ponerla como parametro
 
 
 

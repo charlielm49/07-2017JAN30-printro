@@ -59,7 +59,6 @@ ids = ",".join(map(str, rows))
 sql2 = "SELECT mdl_logstore_standard_log.courseid as crsid, \
     mdl_logstore_standard_log.userid as usrid, \
     mdl_logstore_standard_log.eventname, \
-    mdl_logstore_standard_log.component \
     FROM mdl_logstore_standard_log \
     where mdl_logstore_standard_log.userid in ({ids}) \
     and mdl_logstore_standard_log.timecreated < 1483941600".\
@@ -94,8 +93,8 @@ for item in event['eventname']:
     item = item.replace("course", "crs")
     item = item.replace("user", "usr")
     item = item.replace("viewed", "view")
-    item = item.replace("submitted", "log")
-    item = item.replace("logged", "submit")
+    item = item.replace("submitted", "submit")
+    item = item.replace("logged", "log")
     item = item.replace("module", "mod")
     item = item.replace("message", "msg")
     #print("after", item)
