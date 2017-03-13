@@ -8,7 +8,7 @@ import os
 
 # prueba: path = "."
 # Ruta a dir .data
-path1 = "/opt/aws-ml/.data/"
+path1 = "/opt/aws-ml/.data/worker"
 # Id del proceso actual
 path2 = "8d06f930-4016-4911-8c12-2cc0f92a5b78"
 path = path1 + path2
