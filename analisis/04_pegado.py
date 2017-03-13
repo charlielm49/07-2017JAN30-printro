@@ -3,13 +3,13 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-import datetime
 import glob
 import os
-import pymysql.cursors
 
 # prueba: path = "."
+# Ruta a dir .data
 path1 = "/opt/aws-ml/.data/"
+# Id del proceso actual
 path2 = "8d06f930-4016-4911-8c12-2cc0f92a5b78"
 path = path1 + path2
 
