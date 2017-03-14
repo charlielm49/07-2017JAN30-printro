@@ -48,8 +48,11 @@ __________________________________________________________________________
 __________________________________________________________________________
 
 
-NOTAS: la fecha de inicio de cursos esta hardcodeada: ponerla como parametro
-
+PEND: 
+- la fecha de inicio de cursos esta hardcodeada: ponerla como parametro (limitarnos por el momento a incluir informacion del 2017)
+- falta pegar columna target: aquellos alumnos que no entraron (ojo: la poblacion base va a ser todos todos los enrolados 
+ANALIZAR: cuantos enrolados tienen actividad
+- hay demasiadas materias posteriores a introductorias: quitar las personas que recursan y eliminar todas las actividades de materias curriculares
 
 
 

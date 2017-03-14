@@ -87,21 +87,28 @@ mdl_groups_members.userid
 ------------------------------------------------------------------
 (ya me dijo charlie que están fechas mal en BD, hay que tomar el archivo que el me dio para tomar en cuenta las fechas)
 
-Materias introductorias:
-Introducción al estudio de las ingenierías en línea_A	3783	AB016_1_1101_L1HB402	11-Jan-16	57
+Materias introductorias 2016JAN11:
 
-Introducción al estudio de las ciencias sociales y humanidades en línea_A	3786	AB016_1_1101_L1HB404	11-Jan-16	57
+3783,3786,3789,3792
 
-Introducción al estudio de las ciencias económico-administrativas en línea_A	3789	AB016_1_1101_L1HB403	11-Jan-16	57
+# id, category, fullname, visible, from_unixtime(startdate), from_unixtime(timecreated)
+3783	57	Introducción al estudio de las ingenierías en línea_A	0	2014-09-08 00:00:00	2012-10-04 16:51:16
+3786	57	Introducción al estudio de las ciencias sociales y humanidades en línea_A	0	2014-09-08 00:00:00	2012-10-04 16:51:16
+3789	57	Introducción al estudio de las ciencias económico-administrativas en línea_A	0	2014-09-07 00:00:00	2012-10-04 16:51:16
+3792	57	Habilidades para el aprendizaje virtual_A	0	2016-01-11 00:00:00	2011-12-22 13:08:32
 
-Habilidades para el aprendizaje virtual_A	3792	AB016_1_1101_L1HB405	11-Jan-16	57
+---
 
-3783
-3786
-3789
-3792
+Materias introductorias 2017JAN09:
 
+(8911, 8915, 8919, 8923)
 
+# id, category, fullname, visible, from_unixtime(startdate), from_unixtime(timecreated)
+---------------------------------------------------------------------------------------
+8911, 226, Habilidades para el aprendizaje virtual_A, 0, 2017-01-09 00:00:00, 2016-11-25 10:34:03
+8915, 226, Introducción al estudio de las ciencias económico administrativas en línea_A, 0, 2017-01-09 00:00:00, 2016-11-25 10:35:36
+8919, 226, Introducción al estudio de las ciencias sociales y humanidades en línea_A, 0, 2017-01-09 00:00:00, 2016-11-25 10:36:37
+8923, 226, Introducción al estudio de las ingenierías en línea_A, 0, 2017-01-09 00:00:00, 2016-11-25 10:37:38
 
 
 
