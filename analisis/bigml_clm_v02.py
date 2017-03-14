@@ -35,5 +35,6 @@ api.ok(dataset)
 model = api.create_model(dataset)
 api.ok(model)
 prediction = api.create_prediction(model, \
-{lista})
+{'8919-forum-discussion_view': 5, '8919-forum-post_created': 2.5})
+
 
